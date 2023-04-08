@@ -4,21 +4,19 @@ use bevy::{
 };
 
 fn main() {
-    App::new().add_plugins(
-        DefaultPlugins
-            .set(WindowPlugin {
-                primary_window: Some(Window {
-                    fit_canvas_to_parent: true,
-                    ..default()
-                }),
+    App::new()
+        .add_plugins(DefaultPlugins.set(WindowPlugin {
+            primary_window: Some(Window {
+                fit_canvas_to_parent: true,
                 ..default()
             }),
-    )
-    .add_startup_system(setup)
-    .add_system(animate_translation)
-    .add_system(animate_rotation)
-    .add_system(animate_scale)
-    .run();
+            ..default()
+        }))
+        .add_startup_system(setup)
+        .add_system(animate_translation)
+        .add_system(animate_rotation)
+        .add_system(animate_scale)
+        .run();
 }
 
 #[derive(Component)]
